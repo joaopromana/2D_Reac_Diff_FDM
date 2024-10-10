@@ -18,8 +18,8 @@ where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants where
 
 ```math
 \begin{equation}
-    \boldsymbol{U}_{n+1}^{m+1} = \boldsymbol{U}_{n+1}^{m} + \left[ \boldsymbol{I} -\Delta t J\ left( \boldsymbol{U}_{n+1}^{m} \right) \right]^-1 \left[ \boldsymbol{U}_{n} + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} \right]
+    \boldsymbol{U}_{n+1}^{m+1} = \boldsymbol{U}_{n+1}^m + \left[ \boldsymbol{I} - \Delta t J \left( \boldsymbol{U}_{n+1}^{m} \right) \right]^-1 \left[ \boldsymbol{U}_{n} + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} \right]
 \end{equation}
 ```
 
-where $`U`$ is the solution vector, `n`$ is the time step number, $`m`$ is the iteration number, $`J`$ is the Jacobian and $`F`$ is the discretized formulation following the spatial discretization of the problem. The residual that is minimized by the NR algorithm is given by $`\epsilon^m=\left{||} \boldsymbol{U}_n + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} \right{||}`$. The solution convergence with both methods is analyzed as well as the computational time.
+where $`\boldsymbol{U}`$ is the solution vector, `n`$ is the time step number, $`m`$ is the iteration number, $`J`$ is the Jacobian and $`F`$ is the discretized formulation following the spatial discretization of the problem. The residual that is minimized by the NR algorithm is given by $`\epsilon^m= || \boldsymbol{U}_n + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} ||`$. The solution convergence with both methods is analyzed as well as the computational time.
