@@ -14,7 +14,9 @@ Solution of 2D Reaction-Diffusion non-linear equation with Finite Difference Met
 \end{equation}
 ```
 
-where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants whereas the reaction constants are given by $`k=5.0`$, $`a=0.1305`$ and $`b=0.7695`$. A small non-uniform pseudo-random perturbation $`r(x,y)`$ is introduced in the initial concentration of the activator. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. The last method is combined with the Newton-Raphson (NR) scheme as the non-linear solver algorithm, thus it is designated as the BENR scheme. The NR algorithm is given by the following expression:
+where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants whereas the reaction constants are given by $`k=5.0`$, $`a=0.1305`$ and $`b=0.7695`$. A small non-uniform pseudo-random perturbation $`r(x,y)`$ is introduced in the initial concentration of the activator. 
+
+A doubly-uniform grid is presented with $`N_x=N_y=100`$. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. The last method is combined with the Newton-Raphson (NR) scheme as the non-linear solver algorithm, thus it is designated as the BENR scheme. The NR algorithm is given by the following expression:
 
 ```math
 \begin{equation}
