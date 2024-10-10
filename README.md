@@ -16,7 +16,7 @@ Solution of 2D Reaction-Diffusion non-linear equation with Finite Difference Met
 
 where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants whereas the reaction constants are given by $`k=5.0`$, $`a=0.1305`$ and $`b=0.7695`$. A small non-uniform pseudo-random perturbation $`r(x,y)`$ is introduced in the initial concentration of the activator. 
 
-A doubly-uniform grid is presented with $`N_x=N_y=100`$. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. The last method is combined with the Newton-Raphson (NR) scheme as the non-linear solver algorithm, thus it is designated as the BENR scheme. The NR algorithm is given by the following expression:
+A doubly-uniform grid is presented with $`N_x=N_y=100`$. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. For the FE method, a time step $`\Delta t=2\times10^{-4}`$ is selected whereas $`\Delta t=0.5`$ is chosen for the BENR scheme. The last method is combined with the Newton-Raphson (NR) scheme as the non-linear solver algorithm, thus it is designated as the BENR scheme. The NR algorithm is given by the following expression:
 
 ```math
 \begin{equation}
@@ -24,4 +24,4 @@ A doubly-uniform grid is presented with $`N_x=N_y=100`$. The problem is discreti
 \end{equation}
 ```
 
-where $`\boldsymbol{U}`$ is the solution vector, `n`$ is the time step number, $`m`$ is the iteration number, $`J`$ is the Jacobian and $`F`$ is the discretized formulation following the spatial discretization of the problem. The residual that is minimized by the NR algorithm is given by $`\epsilon^m= || \boldsymbol{U}_n + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} ||_2`$. The solution convergence with both methods is analyzed as well as the computational time.
+where $`\boldsymbol{U}`$ is the solution vector, `n`$ is the time step number, $`m`$ is the iteration number, $`J`$ is the Jacobian and $`F`$ is the discretized formulation following the spatial discretization of the problem. The residual that is minimized by the NR algorithm is given by $`\epsilon^m= || \boldsymbol{U}_n + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} ||_2=10^{-3}`$. The solution convergence with both methods is analyzed as well as the computational time.
