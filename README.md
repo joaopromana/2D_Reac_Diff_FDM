@@ -14,4 +14,12 @@ Solution of 2D Reaction-Diffusion non-linear equation with Finite Difference Met
 \end{equation}
 ```
 
-where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants whereas the reaction constants are given by $`k=5.0`$, $`a=0.1305`$ and $`b=0.7695`$. A small non-uniform pseudo-random perturbation $`r(x,y)`$ is introduced in the initial concentration of the activator. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The last one is combined with the Newton-Raphson (NR) method as the non-linear solver algorithm, thus it is designated as the BENR scheme. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. The solution convergence with both methods is analyzed as well as the computational time.
+where $`D_u=0.05`$ and $`D_v=1.0`$ are the effective diffusivity constants whereas the reaction constants are given by $`k=5.0`$, $`a=0.1305`$ and $`b=0.7695`$. A small non-uniform pseudo-random perturbation $`r(x,y)`$ is introduced in the initial concentration of the activator. The problem is discretized in space with the Finite Difference Method. Two different methods are used for the time integration scheme: the Forward-Euler (FE) method and the Backward-Euler (BE) method. The stability condition for the explicit FE method is investigated by considering a simpler linear problem, from which a suitable time step for the original problem is selected. The last method is combined with the Newton-Raphson (NR) scheme as the non-linear solver algorithm, thus it is designated as the BENR scheme. The NR algorithm is given by the following expression:
+
+```math
+\begin{equation}
+    \boldsymbol{U}_{n+1}^{m+1} = \boldsymbol{U}_{n+1}^{m} + \left[ \boldsymbol{I} -\Delta t J\ left( \boldsymbol{U}_{n+1}^{m} \right) \right]^-1 \left[ \boldsymbol{U}_{n} + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} \right]
+\end{equation}
+```
+
+where $`U`$ is the solution vector, `n`$ is the time step number, $`m`$ is the iteration number, $`J`$ is the Jacobian and $`F`$ is the discretized formulation following the spatial discretization of the problem. The residual that is minimized by the NR algorithm is given by $`\epsilon^m=\left{||} \boldsymbol{U}_n + \Delta t F(\boldsymbol{U}_{n+1}^{m}) - \boldsymbol{U}_{n+1}^{m} \right{||}`$. The solution convergence with both methods is analyzed as well as the computational time.
